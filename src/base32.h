@@ -1,6 +1,10 @@
 #ifndef _BASE32_H_
 #define _BASE32_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif//__cplusplus
+
 //************************************
 // Function:  Base32GetEncodeBufferLen
 // Description: 根据给定需要加密的数据长度计算所需要的缓存长度
@@ -44,5 +48,9 @@ int Base32Encode(const void *data, unsigned int dataLen, void *buffer, unsigned 
 //          返回ENOMEM代表缓存大小不够，pRetLen将返回需要的长度
 //************************************
 int Base32Decode(const char *pEncodeString, void *buffer, unsigned int bufLen, unsigned int *pRetLen);
+
+#ifdef __cplusplus
+}
+#endif//__cplusplus
 
 #endif//_BASE32_H_

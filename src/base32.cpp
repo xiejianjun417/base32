@@ -1,12 +1,15 @@
 #include <assert.h>
 #include <errno.h>
 #include <string.h>
-
 #include "base32.h"
 
-#define SECTION_BITS_COUNT		5
-#define ENCRYPT_MAP_CHAR		"ABCDEFGHIJKLMNOPQRSTUVWXYZ345678"
-#define MAX_MAP_CHAR_COUNT		(sizeof(ENCRYPT_MAP_CHAR) - 1)
+#ifdef __cplusplus
+extern "C" {
+#endif//__cplusplus
+
+#define SECTION_BITS_COUNT      5
+#define ENCRYPT_MAP_CHAR        "ABCDEFGHIJKLMNOPQRSTUVWXYZ345678"
+#define MAX_MAP_CHAR_COUNT      (sizeof(ENCRYPT_MAP_CHAR) - 1)
 
 static const char * const g_mapChars = ENCRYPT_MAP_CHAR;
 
@@ -145,7 +148,7 @@ static unsigned int inner_base32Encode(const void *data, unsigned int dataLen, u
 // Parameter: unsigned int bufLen：存放加密后的缓存大小
 // Parameter: unsigned int * pRetLen：返回加密后的长度(不能为NULL)
 // Comment:
-//			返回ENOMEM代表缓存大小不够，pRetLen将返回需要的长度
+//          返回ENOMEM代表缓存大小不够，pRetLen将返回需要的长度
 //************************************
 int Base32Encode(const void *data, unsigned int dataLen, void *buffer, unsigned int bufLen, unsigned int *pRetLen)
 {
@@ -287,3 +290,7 @@ int Base32Decode(const char *pEncodeString, void *buffer, unsigned int bufLen, u
     }
     return inner_base32Decode(pEncodeString, (unsigned int)strlen(pEncodeString), buffer, bufLen, pRetLen);
 }
+
+#ifdef __cplusplus
+}
+#endif//__cplusplus
