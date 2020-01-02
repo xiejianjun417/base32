@@ -1,4 +1,9 @@
 language: cpp
-os: linux
-script: 
-  - make -C src all
+os:
+  - windows
+  - linux
+script:
+  - windows
+    devenv example\\Base32App.sln /project Base32App /build Release|Win32
+  - linux
+    make -C src all
