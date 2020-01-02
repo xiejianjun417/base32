@@ -2,4 +2,4 @@ language: cpp
 sudo: required
 os: linux
 script: 
-  - make src all
+  - make -C src all
