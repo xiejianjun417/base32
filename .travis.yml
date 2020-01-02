@@ -1,4 +1,4 @@
 language: cpp
 sudo: required
 os: linux
-script: buildAll.sh
+script: ./buildAll.sh
